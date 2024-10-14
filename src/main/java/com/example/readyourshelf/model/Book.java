@@ -1,8 +1,6 @@
 package com.example.readyourshelf.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -11,11 +9,12 @@ import java.time.LocalDate;
 public class Book
 {
     @Id
-    private Long isbn;
+    private String isbn;
     private String title;
     private String author;
     private LocalDate releaseDate;
     private String genre;
+    @Column(columnDefinition="TEXT")
     private String description;
     //private String image;
     private String status;
@@ -23,7 +22,7 @@ public class Book
     private String borrower;
     private String ownerEmail;
 
-    public Book(String title, String author, String genre, String description, Long isbn, String status, String owner, String borrower, String ownerEmail, LocalDate releaseDate)
+    public Book(String title, String author, String genre, String description, String isbn, String status, String owner, String borrower, String ownerEmail, LocalDate releaseDate)
     {
         this.title = title;
         this.author = author;
@@ -43,7 +42,7 @@ public class Book
         this.author = "";
         this.genre = "";
         this.description = "";
-        this.isbn = 0L;
+        this.isbn = "";
         this.status = "";
         this.owner = "";
         this.borrower = "";
@@ -70,7 +69,7 @@ public class Book
         return description;
     }
 
-    public Long getIsbn()
+    public String getIsbn()
     {
         return isbn;
     }
@@ -115,7 +114,7 @@ public class Book
         this.description = description;
     }
 
-    public void setIsbn(Long isbn)
+    public void setIsbn(String isbn)
     {
         this.isbn = isbn;
     }
