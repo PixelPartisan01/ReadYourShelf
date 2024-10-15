@@ -52,6 +52,53 @@ $(document).ready(function ()
         $('#book-container').html(table);
     }
 
+    function addBook(book) {
+        $.ajax({
+            url: '/api/v1/book/add_book',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(book),
+            success: function() {
+                getBooksFromDatabase();
+            },
+            error: function(error) {
+                alert('Error adding book:', error);
+            }
+        });
+    }
+
+    $('#add-book-form').on('submit', function(event) {
+        event.preventDefault();
+        var book = {
+            isbn: $('#isbn').val(),
+            title: $('#title').val(),
+            author: $('#author').val(),
+            releaseDate: $('#releaseDate').val(),
+            genre: $('#genre').val(),
+            description: $('#description').val(),
+            status: $('#status').val(),
+            owner: $('#owner').val(),
+            borrower: $('#borrower').val(),
+            ownerEmail: $('#ownerEmail').val()
+        };
+        addBook(book);
+        $('#add-book-modal').hide();
+    });
+
+    $('#add-book-button').on('click', function() {
+        $('#add-book-modal').show();
+    });
+
+    $('.close').on('click', function() {
+        $('#add-book-modal').hide();
+    });
+
+    $(window).on('click', function(event) {
+        if ($(event.target).is('#add-book-modal')) {
+            $('#add-book-modal').hide();
+        }
+    });
+
     getBooksFromDatabase();
 });
 

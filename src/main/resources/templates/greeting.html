@@ -5,10 +5,34 @@
     <title>Welcome</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script th:src="@{/js/rys.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+
     <div class = "greeting-container">
         <h1 class="greeting" th:text="${message}"></h1>
+    </div><br><br>
+    <div class="button-container">
+        <button id="add-book-button">Add Book</button>
+    </div>
+
+    <div id="add-book-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="add-book-form">
+                <input type="text" id="isbn" name="isbn" placeholder="ISBN" required>
+                <input type="text" id="title" name="title" placeholder="Title" required>
+                <input type="text" id="author" name="author" placeholder="Author" required>
+                <input type="date" id="releaseDate" name="releaseDate" placeholder="Release Date">
+                <input type="text" id="genre" name="genre" placeholder="Genre" >
+                <input type="text" id="description" name="description" placeholder="Description">
+                <input type="text" id="status" name="status" placeholder="Status">
+                <input type="text" id="owner" name="owner" placeholder="Owner">
+                <input type="text" id="ownerEmail" name="ownerEmail" placeholder="Owner Email">
+                <input type="text" id="borrower" name="borrower" placeholder="Borrower">
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
     </div><br><br>
     <div id = "book-container">
     </div>
