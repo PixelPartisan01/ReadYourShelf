@@ -94,6 +94,10 @@ public class Book
         return ownerEmail;
     }
 
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
     public void setTitle(String title)
     {
         this.title = title;
@@ -119,12 +123,25 @@ public class Book
         this.isbn = isbn;
     }
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
-    }
-
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status = status;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setBorrower(String borrower) {
+        this.borrower = borrower;
+    }
+
+    public void setOwnerEmail(String ownerEmail) {
+        this.ownerEmail = ownerEmail;
     }
 
     @Override
