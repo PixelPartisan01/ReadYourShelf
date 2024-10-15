@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script th:src="@{/js/rys.js}"></script>
+</head>
+<body>
+    <div class = "greeting-container">
+        <h1 class="greeting" th:text="${message}"></h1>
+    </div><br><br>
+    <div id = "book-container">
+    </div>
+</body>
+</html>
